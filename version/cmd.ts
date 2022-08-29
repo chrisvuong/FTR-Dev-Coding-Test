@@ -1,6 +1,6 @@
 import { exit } from "process";
 import input from "../utils/input";
-
+import createFib from "../utils/Fib";
 var state ={} ;
 var t:any = 1000;
 var halt:boolean = false;
@@ -25,13 +25,17 @@ function getState(){
 }
 
 async function cmd(){
+    var isFib = createFib();
     t = await input(">> Please input the number of time in seconds between emitting numbers and their frequency \n");
     timeOut = setTimeout(getState, parseInt(t)*1000);
     var loop = true;
     var current:any = await input(">> Please enter the first number\n");
+    loop = current != "quit"; 
     while(loop){     
         if(parseInt(current)){
             var currentInt:number = parseInt(current) ;
+            if(isFib(currentInt))
+                console.log(">> FIB");
             state[currentInt] = (state[currentInt] || 0) +1;
         }
         if(current == "halt"){
