@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "start": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thien Phuc Vuong",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.8.2"
+  }
 }
